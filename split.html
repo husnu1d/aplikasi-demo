@@ -16,7 +16,7 @@
 <body>
   <div class="bg-gray-50">
     <div class="flex w-full  h-screen overflow-hidden"
-        x-data="{ isMobile: window.innerWidth <= 925, sidenavOpen: false, showModal: false}"
+        x-data="{loginApp(), isMobile: window.innerWidth <= 925, sidenavOpen: false, showModal: false}"
         x-init="() => window.addEventListener('resize', () => isMobile = window.innerWidth <= 925)">
         <!-- <script>window.location('template/aside.html')</script> -->
         <aside
@@ -79,12 +79,10 @@
           </li>
           
           <li>
-            <form method="POST" action="">
-                <button class="flex items-center px-4 py-2 rounded-md hover:bg-gray-700">
+                <button @click="logout" class="flex items-center px-4 py-2 rounded-md hover:bg-gray-700">
                     <i class="fas fa-exit mr-3"></i>
                     <span>Log Out</span>
                 </button>
-            </form>
             
           </li>
         </ul>
@@ -318,3 +316,28 @@
   </div>
 </body>
 </html>
+<script>
+    function dashboardApp() {
+      return {
+        isLoggedIn: false,
+        checkLogin() {
+          const token = localStorage.getItem('loginToken');
+          this.isLoggedIn = !!token; // Set to true if token exists
+        },
+        logout() {
+          localStorage.removeItem('loginToken');
+          alert('You have been logged out!');
+          window.location.href = 'login.html'; // Redirect to login page
+        },
+        init() {
+          this.checkLogin();
+        }
+      };
+    }
+  </script>
+
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('dashboardApp', dashboardApp);
+    });
+  </script>
