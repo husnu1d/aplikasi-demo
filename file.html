@@ -49,13 +49,13 @@
               </li>
          
               <li>
-                <a href="split.html" class="flex items-center px-4 py-2 rounded-md bg-gray-700">
+                <a href="split.html" class="flex items-center px-4 py-2 rounded-md hover:bg-gray-700">
                     <i class="fas fa-solid fa-file mr-3"></i>
                     <span>Split Dokumen</span>
                 </a>
               </li>
           <li>
-            <a href="file.html" class="flex items-center px-4 py-2 rounded-md hover:bg-gray-700">
+            <a href="file.html" class="flex items-center px-4 py-2 rounded-md bg-gray-700">
                 <i class="fas fa-solid fa-file mr-3"></i>
                 <span>file</span>
                 <i class="fas fa-solid fa-chevron-right ml-5"></i>
@@ -124,7 +124,7 @@
             <h1
               class="text-center md:text-left text-4xl font-semibold py-4 md:py-6 text-purple-900"
             >
-              Split Dokumen 
+              File Dokumen 
             </h1>
             <nav
               class="flex pl-2 scale-100 max-md:scale-75 justify-center md:justify-start flex-wrap"
@@ -139,7 +139,7 @@
                 >
                   <i class="fas fa-file fa-house"></i>
                   <span class="ms-1 text-sm font-medium md:ms-2"
-                    >Split Dokumen  </span
+                    >File Dokumen  </span
                   >
                 </li>
               </ol>
@@ -195,23 +195,23 @@
                             <thead class="bg-gradient-to-r from-purple-600 to-purple-800 text-white">
                               <tr>
                                 <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider ">Nomor</th>
-                                <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider">Tanggal Upload</th>
-                                <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider">Tipe Dokumen</th>
+                                <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider">Nama File</th>
+                                <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider">total</th>
                                 <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider">Size</th>
+                                <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider">Tanggal Upload</th>
                                 <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider">Author</th>
-                                <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider">Total</th>
-                               
+                                <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider">Aksi</th>
                               </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-300">
                               <template x-for="doc in paginatedDocs" :key="doc.id">
                                 <tr class="hover:bg-purple-50">
                                   <td class="px-6 py-4 text-sm text-gray-800 " x-text="doc.id"></td>
-                                  <td class="px-6 py-4 text-sm text-gray-800" x-text="doc.tanggal_upload"></td>
+                                  <td class="px-6 py-4 text-sm text-gray-800" x-text="doc.nama_file"></td>
                                   <td class="px-6 py-4 text-sm text-gray-800" x-text="doc.tipe_dokumen"></td>
                                   <td class="px-6 py-4 text-sm text-gray-800" x-text="doc.size"></td>
+                                  <td class="px-6 py-4 text-sm text-gray-800" x-text="doc.tanggal_upload"></td>
                                   <td class="px-6 py-4 text-sm text-gray-800" x-text="doc.author"></td>
-                                  <td class="px-6 py-4 text-sm text-gray-800" x-text="doc.file"></td>
                                 </tr>
                               </template>
                             </tbody>

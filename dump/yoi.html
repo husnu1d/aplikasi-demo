@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Tabel dengan Pagination (Alpine.js dan Tailwind CSS)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+    }
+  </style>
+  <script src="tailwind.config.js"></script>
+  <script src="//unpkg.com/alpinejs" defer></script>
+</head>
+<body class="bg-gray-100 py-6">
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div x-data="{
+      docs: [],
+      perPage: 5,  // Menentukan jumlah data yang ditampilkan per halaman
+      currentPage: 1, // Halaman aktif
+      get pages() {
+        return Math.ceil(this.docs.length / this.perPage);
+      },
+      get paginatedDocs() {
+        const start = (this.currentPage - 1) * this.perPage;
+        const end = start + this.perPage;
+        return this.docs.slice(start, end);
+      },
+      async loadData() {
+        const response = await fetch('../data.json');  // Path ke file JSON eksternal
+        const data = await response.json();
+        this.docs = data;
+      }
+    }" x-init="loadData()">
+      <h1 class="text-3xl font-bold mb-6 text-gray-900">Data Arsip dengan Pagination</h1>
+      
+      <div class="overflow-x-auto shadow-lg rounded-lg bg-white mb-4">
+        <table class="min-w-full border-collapse bg-gray-50 text-sm text-left text-gray-700">
+          <thead class="bg-gradient-to-r from-purple-600 to-purple-800 text-white">
+            <tr>
+              <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider">ID</th>
+              <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider">Nama File</th>
+              <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider">Tipe Dokumen</th>
+              <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider">Size</th>
+              <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider">Tanggal Upload</th>
+              <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider">Author</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-300">
+            <template x-for="doc in paginatedDocs" :key="doc.id">
+              <tr class="hover:bg-purple-50">
+                <td class="px-6 py-4 text-sm text-gray-800" x-text="doc.id"></td>
+                <td class="px-6 py-4 text-sm text-gray-800" x-text="doc.nama_file"></td>
+                <td class="px-6 py-4 text-sm text-gray-800" x-text="doc.tipe_dokumen"></td>
+                <td class="px-6 py-4 text-sm text-gray-800" x-text="doc.size"></td>
+                <td class="px-6 py-4 text-sm text-gray-800" x-text="doc.tanggal_upload"></td>
+                <td class="px-6 py-4 text-sm text-gray-800" x-text="doc.author"></td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="flex justify-center space-x-2">
+        <button :disabled="currentPage === 1" @click="currentPage = 1" class="py-2 px-4 bg-blue-500 text-white rounded-md disabled:opacity-50">
+          &laquo; First
+        </button>
+        <button :disabled="currentPage === 1" @click="currentPage--" class="py-2 px-4 bg-blue-500 text-white rounded-md disabled:opacity-50">
+          &lt; Prev
+        </button>
+        
+        <span class="py-2 px-4 text-sm font-semibold text-gray-700">
+          Page <span x-text="currentPage"></span> of <span x-text="pages"></span>
+        </span>
+        
+        <button :disabled="currentPage === pages" @click="currentPage++" class="py-2 px-4 bg-blue-500 text-white rounded-md disabled:opacity-50">
+          Next &gt;
+        </button>
+        <button :disabled="currentPage === pages" @click="currentPage = pages" class="py-2 px-4 bg-blue-500 text-white rounded-md disabled:opacity-50">
+          Last &raquo;
+        </button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
