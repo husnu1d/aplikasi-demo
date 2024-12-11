@@ -14,180 +14,181 @@
   <link rel="stylesheet" href="https://atugatran.github.io/FontAwesome6Pro/css/all.min.css"/>
 </head>
 <body x-data="{dashboardApp()}">
-  <div class="bg-gray-50">
-    <div class="flex w-full  h-screen overflow-hidden"
-        x-data="{ isMobile: window.innerWidth <= 925, sidenavOpen: false, showModal: false}"
-        x-init="() => window.addEventListener('resize', () => isMobile = window.innerWidth <= 925)">
-        <!-- <script>window.location('template/aside.html')</script> -->
-        <aside
-        :class="isMobile ? 'absolute z-30 bottom-0 top-0 left-0' : "
-        x-show="!isMobile || sidenavOpen"
-        @click.outside="sidenavOpen = false"
-        class="w-60 max-h-screen justify-between bg-gray-800 text-gray-200 flex flex-col flex-nowrap"
+    <div class="bg-gray-50">
+      <div class="flex w-full  h-screen overflow-hidden"
+          x-data="{ isMobile: window.innerWidth <= 925, sidenavOpen: false, showModal: false}"
+          x-init="() => window.addEventListener('resize', () => isMobile = window.innerWidth <= 925)">
+          <!-- <script>window.location('template/aside.html')</script> -->
+          <aside
+          :class="isMobile ? 'absolute z-30 bottom-0 top-0 left-0' : "
+          x-show="!isMobile || sidenavOpen"
+          @click.outside="sidenavOpen = false"
+          class="w-60 max-h-screen justify-between bg-gray-800 text-gray-200 flex flex-col flex-nowrap"
+        >
+        <div
+        class="flex items-center justify-between px-6 py-8 border-b border-gray-500"
       >
-      <div
-      class="flex items-center justify-between px-6 py-8 border-b border-gray-500"
-    >
-    <a href="" class="text-white text-3xl font-bold uppercase text-center"> SIARDIKU</a>
-      <button
-        x-show="isMobile"
-        @click="sidenavOpen = false"
-        class="text-gray-400 hover:text-gray-200 "
-      >
-        <i class="fas bg-purple-400 fa-solid fa-times"></i>
-      </button>
-    </div>
-    <nav class="flex-1 flex flex-col justify-around overflow-y-auto px-2 space-y-2 mt-10">
-      <div>
-        <p class="text-gray-400 text-xs uppercase font-bold pl-4">Fitur Utama</p>
-        <ul class="space-y-2 mt-2">
-            <li>
-                <a href="index.html" class="flex items-center px-4 py-2 rounded-md hover:bg-gray-700">
-                    <i class="fas fa-home mr-3"></i>
-                    <span>Dashboard</span>
-                </a>
-              </li>
-         
+      <a href="" class="text-white text-3xl font-bold uppercase text-center"> SIARDIKU</a>
+        <button
+          x-show="isMobile"
+          @click="sidenavOpen = false"
+          class="text-gray-400 hover:text-gray-200 "
+        >
+          <i class="fas bg-purple-400 fa-solid fa-times"></i>
+        </button>
+      </div>
+      <nav class="flex-1 flex flex-col justify-around overflow-y-auto px-2 space-y-2 mt-10">
+        <div>
+          <p class="text-gray-400 text-xs uppercase font-bold pl-4">Fitur Utama</p>
+          <ul class="space-y-2 mt-2">
               <li>
-                <a href="split.html" class="flex items-center px-4 py-2 rounded-md hover:bg-gray-700">
-                    <i class="fas fa-solid fa-file mr-3"></i>
-                    <span>Split Dokumen</span>
-                </a>
-              </li>
-          <li>
-            <a href="file.html" class="flex items-center px-4 py-2 rounded-md hover:bg-gray-700">
-                <i class="fas fa-solid fa-file mr-3"></i>
-                <span>file</span>
-                <i class="fas fa-solid fa-chevron-right ml-5"></i>
-            </a>
-          </li>
-          
-         
-        </ul>
-      </div>
-      <div>
-        <p class="text-gray-400 text-xs uppercase font-bold pl-4">User Info</p>
-        <ul class="space-y-2 mt-2">
-         
-          
-         
-          <li>
-            <a href="setting.html" class="flex items-center px-4 py-2 rounded-md bg-gray-700">
-                <i class="fas fa-solid fa-gear mr-3"></i>
-                <span>Settings</span>
-            </a>
-          </li>
-          
-          <li>
-                <button @click="logout" class="flex items-center px-4 py-2 rounded-md hover:bg-gray-700">
-                    <i class="fas fa-exit mr-3"></i>
-                    <span>Log Out</span>
-                </button>
-            
-          </li>
-        </ul>
-      </div>
-      <button class="flex items-center px-4 py-2 rounded-md hover:bg-gray-700">
-        <i class="fa-solid fa-square-question mr-3" aria-current="true"></i>
-        <span>Help</span></a>
-      </button>
-    </nav>
-</aside>
-      <div class="flex w-full h-full overflow-y-auto p-4 bg-gray-100 box-border shadow-lg rounded-lg" >
-        
-        <div class=" flex-1 flex flex-col h-fit ">
-          <header class="flex flex-1  relative">
-            <nav class="flex-1 h-fit px-4">
-              <ul
-                class="flex items-center justify-between  text-center"
-                x-data="{openSettings:false}"
-              >
+                  <a href="index.html" class="flex items-center px-4 py-2 rounded-md hover:bg-gray-700">
+                      <i class="fas fa-home mr-3"></i>
+                      <span>Dashboard</span>
+                  </a>
+                </li>
+           
                 <li>
-                  <button
-                    x-show="isMobile && !sidenavOpen"
-                    @click="sidenavOpen = true"
-                    class="text-white bg-slate-700 hover:bg-slate ease-in-out duration-100 transition-all hover:scale-110 px-3 py-1 rounded-full shadow-lg"
-                  >
-                    <i class="fas fa-bars" aria-hidden="true"></i>
-                    <span class="sr-only">Open Navigation</span>
-                  </button>
+                  <a href="split.html" class="flex items-center px-4 py-2 rounded-md hover:bg-gray-700">
+                      <i class="fas fa-solid fa-file mr-3"></i>
+                      <span>Split Dokumen</span>
+                  </a>
                 </li>
-                
-                
-              </ul>
-            </nav>
-          </header>
-
-          <main class="  flex-1 px-6">
-            <h1
-              class="text-center md:text-left text-4xl font-semibold py-4 md:py-6 text-purple-900"
-            >
-              Setting Profile
-            </h1>
-            <nav
-              class="flex pl-2 scale-100 max-md:scale-75 justify-center md:justify-start flex-wrap"
-              aria-label="Breadcrumb"
-            >
-              <ol
-                class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse"
-              >
-                <li
-                  class="flex items-center text-gray-500 font-light text-sm"
-                  aria-current="page"
-                >
-                  <i class="fas fa-solid fa-gear"></i>
-                  <span class="ms-1 text-sm font-medium md:ms-2"
-                    >Setting Profile</span
-                  >
-                </li>
-              </ol>
-            </nav>
-            <section class=" mt-10 rounded-lg shadow px-8 py-8 bg-white  my-8 h-full  overflow-hidden">
-                    
-                  <form @submit.prevent="saveProfile">
-                    <!-- Nama -->
-                    <div class="mb-4">
-                        <label for="name" class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
-                        <input type="text" id="name" x-model="name" placeholder="Nama Lengkap" 
-                               class="mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-purple-500 focus:border-purple-500">
-                    </div>
-                    
-                    <!-- Email -->
-                    <div class="mb-4">
-                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                        <input type="email" id="email" x-model="email" placeholder="Email" 
-                               class="mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-purple-500 focus:border-purple-500">
-                    </div>
-                    
-                    <!-- Password -->
-                    <div class="mb-4">
-                        <label for="password" class="block text-sm font-medium text-gray-700">Kata Sandi</label>
-                        <input type="password" id="password" x-model="password" placeholder="Kata Sandi Baru" 
-                               class="mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-purple-500 focus:border-purple-500">
-                    </div>
-        
-                    <!-- Avatar -->
-                    <div class="mb-4">
-                        <label for="avatar" class="block text-sm font-medium text-gray-700">Foto Profil</label>
-                        <input type="file" id="avatar" @change="previewAvatar" 
-                               class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border file:text-sm file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100">
-                        <div class="mt-4" x-show="avatarUrl">
-                            <img :src="avatarUrl" alt="Preview Avatar" class="w-24 h-24 rounded-full object-cover">
-                        </div>
-                    </div>
-        
-                    <!-- Tombol Simpan -->
-                    <button type="submit" 
-                            class="w-full bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-lg">
-                        Simpan Perubahan
-                    </button>
-                </form>
-                      
-            </section>
-          </main>
+            <li>
+              <a href="file.html" class="flex items-center px-4 py-2 rounded-md hover:bg-gray-700">
+                  <i class="fas fa-solid fa-file mr-3"></i>
+                  <span>file</span>
+                  <i class="fas fa-solid fa-chevron-right ml-5"></i>
+              </a>
+            </li>
+            
+           
+          </ul>
         </div>
+        <div>
+          <p class="text-gray-400 text-xs uppercase font-bold pl-4">User Info</p>
+          <ul class="space-y-2 mt-2">
+           
+            
+           
+            <li>
+              <a href="setting.html" class="flex items-center px-4 py-2 rounded-md bg-gray-700">
+                  <i class="fas fa-solid fa-gear mr-3"></i>
+                  <span>Settings</span>
+              </a>
+            </li>
+            
+            <li>
+                  <button @click="logout" class="flex items-center px-4 py-2 rounded-md hover:bg-gray-700">
+                      <i class="fas fa-exit mr-3"></i>
+                      <span>Log Out</span>
+                  </button>
+              
+            </li>
+          </ul>
+        </div>
+        <button class="flex items-center px-4 py-2 rounded-md hover:bg-gray-700">
+          <i class="fa-solid fa-square-question mr-3" aria-current="true"></i>
+          <span>Help</span></a>
+        </button>
+      </nav>
+  </aside>
+        <div class="flex w-full h-full overflow-y-auto p-4 bg-gray-100 box-border shadow-lg rounded-lg" >
+          
+          <div class=" flex-1 flex flex-col h-fit ">
+            <header class="flex flex-1  relative">
+              <nav class="flex-1 h-fit px-4">
+                <ul
+                  class="flex items-center justify-between  text-center"
+                  x-data="{openSettings:false}"
+                >
+                  <li>
+                    <button
+                      x-show="isMobile && !sidenavOpen"
+                      @click="sidenavOpen = true"
+                      class="text-white bg-slate-700 hover:bg-slate ease-in-out duration-100 transition-all hover:scale-110 px-3 py-1 rounded-full shadow-lg"
+                    >
+                      <i class="fas fa-bars" aria-hidden="true"></i>
+                      <span class="sr-only">Open Navigation</span>
+                    </button>
+                  </li>
+                  
+                  
+                </ul>
+              </nav>
+            </header>
+  
+            <main class="  flex-1 px-6">
+              <h1
+                class="text-center md:text-left text-4xl font-semibold py-4 md:py-6 text-purple-900"
+              >
+                Setting Profile
+              </h1>
+              <nav
+                class="flex pl-2 scale-100 max-md:scale-75 justify-center md:justify-start flex-wrap"
+                aria-label="Breadcrumb"
+              >
+                <ol
+                  class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse"
+                >
+                  <li
+                    class="flex items-center text-gray-500 font-light text-sm"
+                    aria-current="page"
+                  >
+                    <i class="fas fa-solid fa-gear"></i>
+                    <span class="ms-1 text-sm font-medium md:ms-2"
+                      >Setting Profile</span
+                    >
+                  </li>
+                </ol>
+              </nav>
+              <section class=" mt-10 rounded-lg shadow px-8 py-8 bg-white  my-8 h-full  overflow-hidden">
+                      
+                    <form @submit.prevent="saveProfile">
+                      <!-- Nama -->
+                      <div class="mb-4">
+                          <label for="name" class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
+                          <input type="text" id="name" x-model="name" placeholder="Nama Lengkap" 
+                                 class="mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-purple-500 focus:border-purple-500">
+                      </div>
+                      
+                      <!-- Email -->
+                      <div class="mb-4">
+                          <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                          <input type="email" id="email" x-model="email" placeholder="Email" 
+                                 class="mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-purple-500 focus:border-purple-500">
+                      </div>
+                      
+                      <!-- Password -->
+                      <div class="mb-4">
+                          <label for="password" class="block text-sm font-medium text-gray-700">Kata Sandi</label>
+                          <input type="password" id="password" x-model="password" placeholder="Kata Sandi Baru" 
+                                 class="mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-purple-500 focus:border-purple-500">
+                      </div>
+          
+                      <!-- Avatar -->
+                      <div class="mb-4">
+                          <label for="avatar" class="block text-sm font-medium text-gray-700">Foto Profil</label>
+                          <input type="file" id="avatar" @change="previewAvatar" 
+                                 class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border file:text-sm file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100">
+                          <div class="mt-4" x-show="avatarUrl">
+                              <img :src="avatarUrl" alt="Preview Avatar" class="w-24 h-24 rounded-full object-cover">
+                          </div>
+                      </div>
+          
+                      <!-- Tombol Simpan -->
+                      <button type="submit" 
+                              class="w-full bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-lg">
+                          Simpan Perubahan
+                      </button>
+                  </form>
+                        
+              </section>
+            </main>
+          </div>
+      </div>
     </div>
-  </div>
+    </div>
 </body>
 </html>
 <script>
