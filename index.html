@@ -14,8 +14,7 @@
   <link rel="stylesheet" href="https://atugatran.github.io/FontAwesome6Pro/css/all.min.css"/>
 </head>
 <body>
-  <div class="bg-gray-50" x-data="dashboardApp()">
-      <template x-if="isLoggedIn">
+  <div class="bg-gray-50" >
       <div class="flex w-full  h-screen overflow-hidden"
           x-data="{ isMobile: window.innerWidth <= 925, sidenavOpen: false, showModal: false}"
           x-init="() => window.addEventListener('resize', () => isMobile = window.innerWidth <= 925)">
@@ -210,16 +209,7 @@
             </main>
           </div>
       </div>
-    </template>
-    <template x-if="!isLoggedIn">
-      <div>
-        <h2 class="text-2xl font-bold text-center text-red-500 mb-6">Access Denied</h2>
-        <p class="text-center mb-4">You need to log in to access this page.</p>
-        <a href="index.html" class="w-full block bg-blue-500 text-white py-2 rounded-md text-center hover:bg-blue-600">
-          Go to Login
-        </a>
-      </div>
-    </template>
+    
     </div>
 
 </body>
