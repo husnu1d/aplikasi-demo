@@ -317,28 +317,3 @@
    
 </body>
 </html>
-<script>
-    function dashboardApp() {
-      return {
-        isLoggedIn: false,
-        checkLogin() {
-          const token = localStorage.getItem('loginToken');
-          this.isLoggedIn = !!token; // Set to true if token exists
-        },
-        logout() {
-          localStorage.removeItem('loginToken');
-          alert('You have been logged out!');
-          window.location.href = 'login.html'; // Redirect to login page
-        },
-        init() {
-          this.checkLogin();
-        }
-      };
-    }
-  </script>
-
-  <script>
-    document.addEventListener('alpine:init', () => {
-      Alpine.data('dashboardApp', dashboardApp);
-    });
-  </script>

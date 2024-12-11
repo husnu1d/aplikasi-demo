@@ -127,40 +127,6 @@
       </p>
     </div>
 
-    <script>
-      function loginApp() {
-        return {
-          email: "",
-          password: "",
-          errorMessage: "",
-          login() {
-            const credentials = {
-              email: this.email,
-              password: this.password,
-            };
-
-            fetch("login.json", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(credentials),
-            })
-              .then((response) => {
-                if (!response.ok) {
-                  throw new Error("Invalid login credentials");
-                }
-                return response.json();
-              })
-              .then((data) => {
-                localStorage.setItem("loginToken", data.token);
-                alert("Login successful! Redirecting...");
-                window.location.href = "index.html";
-              })
-              .catch((error) => {
-                this.errorMessage = error.message;
-              });
-          },
-        };
-      }
-    </script>
+   
   </body>
 </html>
