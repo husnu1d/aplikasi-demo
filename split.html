@@ -34,7 +34,7 @@
         @click="sidenavOpen = false"
         class="text-gray-400 hover:text-gray-200 "
       >
-        <i class="fas bg-blue-400 fa-solid fa-times"></i>
+        <i class="fas bg-purple-400 fa-solid fa-times"></i>
       </button>
     </div>
     <nav class="flex-1 flex flex-col justify-around overflow-y-auto px-2 space-y-2 mt-10">
@@ -72,7 +72,7 @@
           
          
           <li>
-            <a href="Setting.html" class="flex items-center px-4 py-2 rounded-md hover:bg-gray-700">
+            <a href="setting.html" class="flex items-center px-4 py-2 rounded-md hover:bg-gray-700">
                 <i class="fas fa-solid fa-gear mr-3"></i>
                 <span>Settings</span>
             </a>
@@ -292,10 +292,10 @@
                         </table> -->
                       </div>
                       <div class="flex justify-center space-x-2">
-                        <button :disabled="currentPage === 1" @click="currentPage = 1" class="py-2 px-4 bg-blue-500 text-white rounded-md disabled:opacity-50">
+                        <button :disabled="currentPage === 1" @click="currentPage = 1" class="py-2 px-4 bg-purple-500 text-white rounded-md disabled:opacity-50">
                           &laquo; 
                         </button>
-                        <button :disabled="currentPage === 1" @click="currentPage--" class="py-2 px-4 bg-blue-500 text-white rounded-md disabled:opacity-50">
+                        <button :disabled="currentPage === 1" @click="currentPage--" class="py-2 px-4 bg-purple-500 text-white rounded-md disabled:opacity-50">
                           &lt;
                         </button>
                         
@@ -303,10 +303,10 @@
                           Page <span x-text="currentPage"></span> of <span x-text="pages"></span>
                         </span>
                         
-                        <button :disabled="currentPage === pages" @click="currentPage++" class="py-2 px-4 bg-blue-500 text-white rounded-md disabled:opacity-50">
+                        <button :disabled="currentPage === pages" @click="currentPage++" class="py-2 px-4 bg-purple-500 text-white rounded-md disabled:opacity-50">
                           &gt;
                         </button>
-                        <button :disabled="currentPage === pages" @click="currentPage = pages" class="py-2 px-4 bg-blue-500 text-white rounded-md disabled:opacity-50">
+                        <button :disabled="currentPage === pages" @click="currentPage = pages" class="py-2 px-4 bg-purple-500 text-white rounded-md disabled:opacity-50">
                           &raquo;
                         </button>
                       </div>
